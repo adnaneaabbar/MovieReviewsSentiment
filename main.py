@@ -19,18 +19,18 @@ model.add(Dense(1, activation='sigmoid'))
 
 # binary classification
 model.compile(loss='binary_crossentropy',
-              optimizer='sgd',
+              optimizer='adam',
               metrics=['accuracy'])
 
 history = model.fit(x_train,
                     y_train,
-                    batch_size=32,
-                    epochs=15,
+                    batch_size=64,
+                    epochs=10,
                     validation_data=(x_test, y_test))
 
 score = model.evaluate(x_test,
                        y_test,
-                       batch_size=32)
+                       batch_size=64)
 
 print('Test loss: ', score[0])
 print('Test accuracy: ', score[1])
